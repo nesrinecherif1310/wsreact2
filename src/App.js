@@ -1,48 +1,46 @@
 
-import { Button, Form } from 'react-bootstrap';
 import './App.css';
+import { fullName,adress,imgProfile } from './Data';
+import Adress from './Components/Adress';
+import FullName from './Components/fullName';
+import ProfilePhoto from './Components/profilePhoto';
+import{Card} from "react-bootstrap";
+import ButtonCard from './Components/Button';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <Form>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
+ const handleName=(name)=>
+ {
+  alert(name)
+ }
+  return ( 
 
-<Form>
-  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-    <Form.Label>adress emails</Form.Label>
-    <Form.Control type="email" placeholder="name@example.com" />
-  </Form.Group>
-  <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-    <Form.Label>text</Form.Label>
-    <Form.Control as="textarea" rows={3} />
-  </Form.Group>
-</Form>
-    </div>
+  <div className="App">
 
-    
+  <Card style={{ width: '18rem' }}>
+  <ProfilePhoto imgProfile={imgProfile}/> 
+  <Card.Body>
+    <Card.Title>
+    <FullName fullName={fullName}/>
+    </Card.Title>
+    <Card.Text>
+    <Adress adress={adress}/>  
+ 
+    </Card.Text>
+ <ButtonCard handleName={handleName} fullName={fullName}/>
+  </Card.Body>
+</Card>
+
+
+
+
+  </div>
+
   )
-}
-
-
+};
+  
 
 
 export default App;
